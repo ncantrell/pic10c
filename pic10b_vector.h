@@ -18,19 +18,20 @@ namespace Pic10b {
 		vector();
 		vector(const vector&);
 		vector& operator=(const vector&);
-                vector& operator+(const vector&);
+		vector& operator+(const vector&);
 		vector& operator+=(const vector&);
 		bool operator<(const vector&);
 		bool operator<=(const vector&);
 		bool operator>(const vector&);
 		bool operator>=(const vector&);
 		bool operator!=(const vector&);
+		bool operator==(const vector&);
 		~vector();
 
 		// Other members [public]
 		bool empty() const;
+		size_t norm() const;
 		size_t size() const;
-                size_t norm() const;
 		size_t capacity() const;
 		T front() const;
 		T back() const;
@@ -77,6 +78,24 @@ namespace Pic10b {
 		if (this != &rhs) {     // Self-assignment?
 								// Release old memory and request more 
 			delete[] the_data;
+			the_data = new double[rhs.the_capacity];
+
+			// Shallow copy non-pointers
+			the_size = rhs.the_size;
+			the_capacity = rhs.the_capacity;
+
+			// Deep copy internal array
+			for (int i = 0; i < the_size; ++i)
+				the_data[i] = rhs.the_data[i];
+		}
+		return *this;
+	}
+/*
+	template <class T>
+	vector<T>& vector<T>::operator=(const vector& rhs) {
+		if (this != &rhs) {     // Self-assignment?
+								// Release old memory and request more 
+			delete[] the_data;
 			the_data = new T[rhs.the_capacity];
 			for (size_t i = 0; i <= rhs.the_capacity; ++i)
 				the_data[i] = 0;
@@ -91,9 +110,8 @@ namespace Pic10b {
 		}
 		return *this;
 	}
-
-
-        template <class T>
+	*/
+	template <class T>
 	vector<T>& vector<T>::operator+(const vector& rhs) {
 		if (this != &rhs) {     // Self-assignment?
 								// Release old memory and request more 
@@ -121,34 +139,34 @@ namespace Pic10b {
 	}
 	template <class T>
 	bool vector<T>::operator <(const vector& rhs) {
-		if (this->norm() < rhs->norm()) {
+		if (this.norm() < rhs.norm()) {
 			return true;
 		}
 		return false;
 	}
 	template <class T>
 	bool vector<T>::operator<=(const vector& rhs) {
-		if (this->norm() < rhs->norm()) {
+		if (this.norm() < rhs.norm()) {
 			return true;
 		}
-		if (this->norm() == rhs->norm()) {
+		if (this.norm() == rhs.norm()) {
 			return true;
 		}
 		return false;
 	}
 	template <class T>
 	bool vector<T>::operator >(const vector& rhs) {
-		if (this->norm() > rhs->norm()) {
+		if (this.norm() > rhs.norm()) {
 			return true;
 		}
 		return false;
 	}
 	template <class T>
 	bool vector<T>::operator>=(const vector& rhs) {
-		if (this->norm() > rhs->norm()) {
+		if (this.norm() > rhs.norm()) {
 			return true;
 		}
-		if (this->norm() == rhs->norm()) {
+		if (this.norm() == rhs.norm()) {
 			return true;
 		}
 		return false;
@@ -160,7 +178,15 @@ namespace Pic10b {
 			if (the_data[i] != rhs.the_data[i]) { out = true; }
 		return out;
 	}
-	
+	template <class T>
+	bool vector<T>::operator==(const vector& rhs) {
+		bool out = true;
+		for (int i = 0; i < the_capacity; ++i)
+			if (the_data[i] != rhs.the_data[i]) { out = false; }
+		return out;
+	}
+
+
 	template <class T>
 	vector<T>::~vector() {
 		delete[] the_data;
@@ -176,11 +202,11 @@ namespace Pic10b {
 		return the_size;
 	}
 	template <class T>
-	size_t norm() const {
+	size_t vector<T>::norm() const {
 		size_t norm = 0;
 		for (size_t i = 0; i < the_capacity; ++i)
 			norm += the_data[i];
-		sqrt(norm);
+		//norm = sqrt(norm);
 		return norm;
 	}
 	template <class T>
@@ -273,8 +299,7 @@ void print_vector(const Pic10b::vector<T>& v) {
 	else
 		std::cout << "Vector (contents): " << v << '\n';
 }
-
-
+//the vector class works on this main function
 /*
 int main() {
 
@@ -307,6 +332,28 @@ int main() {
 	std::string input;
 	getline(std::cin, input);
 	return 0;
-}*/
+}
 
 
+
+/**
+OUTPUT:
+
+Create & display empty vector (v1)
+Vector is empty
+Vector (dump): 0 0 0 0 0 0 0 0 0 0
+
+Populate & display vector with 15 entries (v1)
+Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+Copy non-empty vector, pop back last entry & display (v2)
+Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+
+Reassign vector (v1 = v2) & display
+Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+
+Dump contents of vectors (v1,v2)
+Vector (dump): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0 0 0 0 0
+Vector (dump): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0 0 0 0 0
+
+**/
