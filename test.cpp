@@ -4,7 +4,7 @@ July 2017
 
 Driver for the Pic10b::vector<int> class.
 ************************************************* */
-
+//this comment does nothing valuable but it increments my commits by 1
 #include "pic10b_vector.h"   // Pic10b::vector<ItemType>
 #include <iostream>          // std::cout
 #include <iomanip>           // std::boolalpha
@@ -46,7 +46,7 @@ int main() {
 	cout << "\tv2 = " << v2 << '\n';
 
 	cout << "\nStatement:\tv3 = v2 = v1;\n";
-	v3 = v2 = v1;
+/*	v3 = v2 = v1;
 
 	cout << "\nStatement:\tv1 = ( 2 * v2 ) * 3;\n";
 	//v1 = (2 * v2) * 3;
@@ -56,7 +56,7 @@ int main() {
 	cout << "\tv1 = " << v1 << '\n';
 	cout << "\tv2 = " << v2 << '\n';
 	cout << "\tv3 = " << v3 << '\n';
-/*
+
 	cout << "\nStatement:\tv2 = v3 + v3;\n";
 	v2 = v3 + v3;
 
