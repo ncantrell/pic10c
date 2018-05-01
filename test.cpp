@@ -46,7 +46,7 @@ int main() {
 	cout << "\tv2 = " << v2 << '\n';
 
 	cout << "\nStatement:\tv3 = v2 = v1;\n";
-/*	v3 = v2 = v1;
+	v3 = v2 = v1;
 
 	cout << "\nStatement:\tv1 = ( 2 * v2 ) * 3;\n";
 	//v1 = (2 * v2) * 3;
@@ -79,12 +79,12 @@ int main() {
 	cout << "\tv3 = " << v3 << '\n';
 
 	cout << "\nAction(s):\tThe dot product of v2 and v3 is displayed\n";
-	cout << "\tv2 * v3 = " << v2 * v3 << '\n';
+//	cout << "\tv2 * v3 = " << v2 * v3 << '\n';
 
 	cout << "\nAction(s):\tThe norms of v1, v2, and v3 are displayed\n";
-	cout << "\t|| v1 || = " << sqrt(v1*v1) << '\n';
-	cout << "\t|| v2 || = " << sqrt(v2*v2) << '\n';
-	cout << "\t|| v3 || = " << sqrt(v3*v3) << '\n';
+//	cout << "\t|| v1 || = " << sqrt(v1*v1) << '\n';
+//	cout << "\t|| v2 || = " << sqrt(v2*v2) << '\n';
+//	cout << "\t|| v3 || = " << sqrt(v3*v3) << '\n';
 
 	cout << "\nAction(s):\tBoolean comparisons involving v1, v2, and v3\n";
 	cout << std::boolalpha
@@ -92,13 +92,13 @@ int main() {
 		<< "\tv2 <= v1 is " << (v2 <= v1) << "  because || v2 || <= || v1 ||\n"
 		<< "\tv1 >  v3 is " << (v1 >  v3) << "  because || v1 || >  || v3 ||\n"
 		<< "\tv3 >= v1 is " << (v3 >= v1) << " because || v3 || <  || v1 ||\n"
-		<< "\tv2 == v3 is " << (v2 == v3) << '\n'
+//		<< "\tv2 == v3 is " << (v2 == v3) << '\n'
 		<< "\tv2 != v3 is " << (v2 != v3) << '\n';
 	cout << '\n';
 
-	cout << "\tv1 == 3 * v2 is " << (v1 == 3 * v2) << '\n';
-	cout << '\n';
-	cout << "\t2 * v3 == 3 * v2 is " << (2 * v3 == 3 * v2) << '\n';
+//	cout << "\tv1 == 3 * v2 is " << (v1 == 3 * v2) << '\n';
+//	cout << '\n';
+//	cout << "\t2 * v3 == 3 * v2 is " << (2 * v3 == 3 * v2) << '\n';
 
 	cout << "\nStatement:\treturn 0;\n";*/
 	return 0;

@@ -18,11 +18,19 @@ namespace Pic10b {
 		vector();
 		vector(const vector&);
 		vector& operator=(const vector&);
+                vector& operator+(const vector&);
+		vector& operator+=(const vector&);
+		bool operator<(const vector&);
+		bool operator<=(const vector&);
+		bool operator>(const vector&);
+		bool operator>=(const vector&);
+		bool operator!=(const vector&);
 		~vector();
 
 		// Other members [public]
 		bool empty() const;
 		size_t size() const;
+                size_t norm() const;
 		size_t capacity() const;
 		T front() const;
 		T back() const;
@@ -83,6 +91,76 @@ namespace Pic10b {
 		}
 		return *this;
 	}
+
+
+        template <class T>
+	vector<T>& vector<T>::operator+(const vector& rhs) {
+		if (this != &rhs) {     // Self-assignment?
+								// Release old memory and request more 
+			delete[] the_data;
+			the_data = new T[rhs.the_capacity];
+			for (size_t i = 0; i <= rhs.the_capacity; ++i)
+				the_data[i] = 0;
+
+			// Shallow copy non-pointers
+			the_size = rhs.the_size;
+			the_capacity = rhs.the_capacity;
+
+			// Deep copy internal array
+			for (int i = 0; i < the_capacity; ++i)
+				the_data[i] = rhs.the_data[i];
+		}
+		return *this;
+	}
+	template <class T>
+	vector<T>& vector<T>::operator+=(const vector& rhs)
+	{
+		for (int i = 0; i < the_capacity; ++i)
+			the_data[i] += rhs.the_data[i];
+		return *this;
+	}
+	template <class T>
+	bool vector<T>::operator <(const vector& rhs) {
+		if (this->norm() < rhs->norm()) {
+			return true;
+		}
+		return false;
+	}
+	template <class T>
+	bool vector<T>::operator<=(const vector& rhs) {
+		if (this->norm() < rhs->norm()) {
+			return true;
+		}
+		if (this->norm() == rhs->norm()) {
+			return true;
+		}
+		return false;
+	}
+	template <class T>
+	bool vector<T>::operator >(const vector& rhs) {
+		if (this->norm() > rhs->norm()) {
+			return true;
+		}
+		return false;
+	}
+	template <class T>
+	bool vector<T>::operator>=(const vector& rhs) {
+		if (this->norm() > rhs->norm()) {
+			return true;
+		}
+		if (this->norm() == rhs->norm()) {
+			return true;
+		}
+		return false;
+	}
+	template <class T>
+	bool vector<T>::operator!=(const vector& rhs) {
+		bool out = false;
+		for (int i = 0; i < the_capacity; ++i)
+			if (the_data[i] != rhs.the_data[i]) { out = true; }
+		return out;
+	}
+	
 	template <class T>
 	vector<T>::~vector() {
 		delete[] the_data;
@@ -96,6 +174,14 @@ namespace Pic10b {
 	template <class T>
 	size_t vector<T>::size() const {
 		return the_size;
+	}
+	template <class T>
+	size_t norm() const {
+		size_t norm = 0;
+		for (size_t i = 0; i < the_capacity; ++i)
+			norm += the_data[i];
+		sqrt(norm);
+		return norm;
 	}
 	template <class T>
 	size_t vector<T>::capacity() const {
