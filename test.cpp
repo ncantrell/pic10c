@@ -41,7 +41,7 @@ int main() {
 	v1[2] = newEntry;
 	v1.push_back(2 * newEntry);
 	cout << "\tv1 = " << v1 << '\n';
-/*
+
 	cout << "\nAction(s):\tv2 is displayed\n";
 	cout << "\tv2 = " << v2 << '\n';
 
@@ -56,7 +56,7 @@ int main() {
 	cout << "\tv1 = " << v1 << '\n';
 	cout << "\tv2 = " << v2 << '\n';
 	cout << "\tv3 = " << v3 << '\n';
-
+/*
 	cout << "\nStatement:\tv2 = v3 + v3;\n";
 	v2 = v3 + v3;
 
