@@ -1,3 +1,6 @@
+//Name: Nicholas Cantrell
+//ID# 704957985
+//PIC10C Homework #1 Assignment A
 #include <iostream>   // std::ostream, std::cout
 #include <stdio.h>
 #include <string>
@@ -20,6 +23,7 @@ namespace Pic10b {
 		vector& operator=(const vector&);
 		vector& operator+(const vector&);
 		vector& operator+=(const vector&);
+		
 		bool operator<(const vector&);
 		bool operator<=(const vector&);
 		bool operator>(const vector&);
@@ -90,27 +94,6 @@ namespace Pic10b {
 		}
 		return *this;
 	}
-/*
-	template <class T>
-	vector<T>& vector<T>::operator=(const vector& rhs) {
-		if (this != &rhs) {     // Self-assignment?
-								// Release old memory and request more 
-			delete[] the_data;
-			the_data = new T[rhs.the_capacity];
-			for (size_t i = 0; i <= rhs.the_capacity; ++i)
-				the_data[i] = 0;
-
-			// Shallow copy non-pointers
-			the_size = rhs.the_size;
-			the_capacity = rhs.the_capacity;
-
-			// Deep copy internal array
-			for (int i = 0; i < the_capacity; ++i)
-				the_data[i] = rhs.the_data[i];
-		}
-		return *this;
-	}
-	*/
 	template <class T>
 	vector<T>& vector<T>::operator+(const vector& rhs) {
 		if (this != &rhs) {     // Self-assignment?
@@ -299,7 +282,6 @@ void print_vector(const Pic10b::vector<T>& v) {
 	else
 		std::cout << "Vector (contents): " << v << '\n';
 }
-//the vector class works on this main function
 /*
 int main() {
 
