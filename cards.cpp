@@ -1,7 +1,6 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
-//this comment is not in master
 //This comment is not in the experimental branch
 /* 
 You might or might not need these two extra libraries 
