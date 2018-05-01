@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string>
 
-namespace Pic10c {
+namespace Pic10b {
 	template <class T>
 	class vector {
 	private:
@@ -38,7 +38,7 @@ namespace Pic10c {
 		//Other members [private]
 		void reserve(size_t new_capacity);
 
-	}; // end Pic10c::vector
+	}; // end Pic10b::vector
 
 
 	   /** ************************* THE BIG 4 ************************* **/
@@ -168,20 +168,20 @@ namespace Pic10c {
 		}
 	}
 
-} // end Pic10c namespace
+} // end Pic10b namespace
 
 
 
   /** ************************ OTHER FUNCTIONS ************************ **/
 template <class T>
-std::ostream& operator<<(std::ostream& out, const Pic10c::vector<T>& v) {
+std::ostream& operator<<(std::ostream& out, const Pic10b::vector<T>& v) {
 	for (size_t i = 0; i < v.size(); ++i)
 		out << v[i] << ' ';
 	return out;
 }
 
 template <class T>
-void print_vector(const Pic10c::vector<T>& v) {
+void print_vector(const Pic10b::vector<T>& v) {
 	if (v.empty())
 		std::cout << "Vector is empty\n";
 	else
@@ -189,11 +189,10 @@ void print_vector(const Pic10c::vector<T>& v) {
 }
 
 
-
-/** ************************* THE DRIVER ************************ **/
+/*
 int main() {
 
-	using Pic10c::vector;
+	using Pic10b::vector;
 	using std::cout;
 
 	cout << "Create & display empty vector (v1)\n";
@@ -222,26 +221,6 @@ int main() {
 	std::string input;
 	getline(std::cin, input);
 	return 0;
-}
+}*/
 
-/**
-OUTPUT:
 
-Create & display empty vector (v1)
-Vector is empty
-Vector (dump): 0 0 0 0 0 0 0 0 0 0
-
-Populate & display vector with 15 entries (v1)
-Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-
-Copy non-empty vector, pop back last entry & display (v2)
-Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14
-
-Reassign vector (v1 = v2) & display
-Vector (contents): 1 2 3 4 5 6 7 8 9 10 11 12 13 14
-
-Dump contents of vectors (v1,v2)
-Vector (dump): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0 0 0 0 0
-Vector (dump): 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 0 0 0 0 0
-
-**/
