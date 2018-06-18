@@ -18,7 +18,7 @@ Spring 2018 Pic10c
 ## Future Work
 4) let us know about possible ways to improve it.
 
-----
+---- 
 
 ### The mechanics of the game
 The game is played with a 'Spanish baraja'.
