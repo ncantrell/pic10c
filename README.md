@@ -1,16 +1,16 @@
 # pic10c
-Spring 2018 Pic10c
+Spring 2018 PIC10C
 
 ----
-### Homework Assignment 1
+## Homework Assignment 1
 
-## Problems and Problem Solving
+### Problems and Problem Solving
 I decided to do the version of the assignment which required us to practice using git. Just for fun, I also worked on the custom implementation of "vector".
 
-## Solutions and Lessons Learned
+### Solutions and Lessons Learned
 This assignment was helpful for practicing operator overloading.
 
-## Future Work
+### Future Work
 There were a couple operators which I wasn't able to fully implement before the deadline. I'd like to go back this summer and finish those.
 
 ---- 
