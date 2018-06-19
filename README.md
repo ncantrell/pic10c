@@ -4,19 +4,14 @@ Spring 2018 Pic10c
 ----
 ### Homework Assignment 1
 
-## Process
-1) add a section that describes the process you followed to complete your assignment. 
-(Start by discussing how you came up with the idea and/or why you settle on this particular project.)
-
 ## Problems and Problem Solving
-2) Detail your research (e.g. include links to tutorials, and/or stackoverflow-like phorums), as well as your struggles (e.g. compilation/linking issues, etc) and the way you either solved them and/or worked around them.
+I decided to do the version of the assignment which required us to practice using git. Just for fun, I also worked on the custom implementation of "vector".
 
 ## Solutions and Lessons Learned
-3) Detail the issues you came up with, and most importantly, all things you took away from the process. 
-(Remember, the main goal of this assignment is to have you showcase your learning process.)
+This assignment was helpful for practicing operator overloading.
 
 ## Future Work
-4) let us know about possible ways to improve it.
+There were a couple operators which I wasn't able to fully implement before the deadline. I'd like to go back this summer and finish those.
 
 ---- 
 
